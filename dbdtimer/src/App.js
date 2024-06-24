@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Timer from './components/timer';
+import Header from './components/header';
 
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
@@ -26,9 +27,14 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Timer currentTime={currentTime} isRunning={isRunning} btnClickHandler={btnClickHandler} />
-    </div>
+    <>
+      <Header/>
+      <body>
+        <Timer currentTime={currentTime} isRunning={isRunning} btnClickHandler={btnClickHandler} />
+      </body>
+    </>
+      
+    
   );
 }
 
