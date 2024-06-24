@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Timer from './components/timer';
 
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
@@ -15,9 +16,7 @@ function App() {
     return () => clearInterval(timeInterval)
   }, [isRunning, currentTime])
 
-  const milliseconds = currentTime % 100
-  const seconds = Math.floor((currentTime % 6000) / 100)
-  const minutes = Math.floor((currentTime % 360000) / 6000)
+
 
 
   const btnClickHandler = () => {
@@ -25,10 +24,10 @@ function App() {
   }
 
 
+
   return (
     <div className="App">
-      <h1>{minutes.toString().padStart(2, "0")}:{seconds.toString().padStart(2, "0")}.{milliseconds.toString().padStart(2, "0")}</h1>
-      <button onClick={btnClickHandler} >Start</button>
+      <Timer currentTime={currentTime} isRunning={isRunning} btnClickHandler={btnClickHandler} />
     </div>
   );
 }
