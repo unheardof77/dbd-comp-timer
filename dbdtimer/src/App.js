@@ -6,8 +6,15 @@ import Leaderboard from './components/leaderboard';
 import Form from './components/form';
 
 function App() {
+
+  //states for timer
   const [ currentTime, setCurrentTime ] = useState(0);
   const [ isRunning, setIsRunning ] = useState(false);
+
+  //states for data collection from form
+  const [survivorName, setsurvivorName] = useState('');
+  const [killerName, setkillerName] = useState('');
+  const [killerUsed, setkillerUsed] = useState('');
   
   useEffect(() => {
     let timeInterval;
@@ -32,9 +39,9 @@ function App() {
     <>
       <Header/>
       <body>
-        <Form/>
+        <Form survivorName={survivorName} setsurvivorName={setsurvivorName} killerName={killerName} setkillerName={setkillerName} killerUsed={killerUsed} setkillerUsed={setkillerUsed} />
         <Timer currentTime={currentTime} isRunning={isRunning} btnClickHandler={btnClickHandler} />
-        <Leaderboard currentTime={currentTime} isRunning={isRunning} />
+        <Leaderboard currentTime={currentTime} isRunning={isRunning} survivorName={survivorName} killerName={killerName} killerUsed={killerUsed} />
       </body>
     </>
       
