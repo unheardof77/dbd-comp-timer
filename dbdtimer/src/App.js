@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Timer from './components/timer';
 import Header from './components/header';
+import Leaderboard from './components/leaderboard';
+import Form from './components/form';
 
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
@@ -30,7 +32,9 @@ function App() {
     <>
       <Header/>
       <body>
+        <Form/>
         <Timer currentTime={currentTime} isRunning={isRunning} btnClickHandler={btnClickHandler} />
+        <Leaderboard currentTime={currentTime} isRunning={isRunning} />
       </body>
     </>
       
